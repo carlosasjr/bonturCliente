@@ -4,32 +4,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>   
 
 
-<%
-
-    String formRegistro = request.getParameter("formRegistro");
-
-    if (formRegistro != null) {
-
-        String nome = request.getParameter("nome");
-        String email = request.getParameter("email");
-        String senha = request.getParameter("senha");
-
-        Cliente cli = new Cliente();
-
-        cli.setNome(nome);
-        cli.setEmail(email);
-        cli.setSenha(senha);
-        cli.setIp("192.168.0.1");
-        
-        if (!ClienteDAO.usuarioExiste(cli)) {
-            ClienteDAO.inserir(cli);
-            out.println("Usuário cadastrado com sucesso");
-        } else {
-           out.println("Usuário já cadastrado");
-        }
-    }
-
-%>
 
 
 <html lang="pt-br">
@@ -48,6 +22,22 @@
                     <!--FORMULÁRIO DE LOGIN -->
                     <div class="col-md-5 login-sec" id="login">
                         <h2 class="text-center">Login</h2>                       
+
+
+                        <%
+
+                            String registro = request.getParameter("registro");
+
+                            if (registro != null) {
+                                if (registro.equals("true")) {
+                                    out.println("Cadastrado com sucesso!");
+                                } else {
+                                    out.println("E-mail já foi cadastrado!");
+                                }
+                            }
+
+                        %>                        
+
                         <form class="login-form" id="formLogin" name="formLogin" method="post">
 
                             <div class="form-group">
@@ -76,7 +66,7 @@
 
                     <!--FORMULÁRIO DE REGISTRO -->
                     <div class="col-md-5 login-sec" id="registro" style="display: none">
-                        <form class="login-form" id="formRegisto" name="formRegisto" method="post">
+                        <form class="login-form" id="formRegisto" name="formRegisto" method="post" action="cliente/registro.jsp">
                             <h2 class="text-center">Registro</h2>
                             <div class="form-group">
                                 <label for="nomeRegistro">Nome</label>

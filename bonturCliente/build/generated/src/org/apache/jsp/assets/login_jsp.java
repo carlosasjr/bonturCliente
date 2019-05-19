@@ -51,26 +51,13 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
 
 
-    String formRegistro = request.getParameter("formRegistro");
+    String registro = request.getParameter("registro");
 
-    if (formRegistro != null) {
-
-        String nome = request.getParameter("nome");
-        String email = request.getParameter("email");
-        String senha = request.getParameter("senha");
-
-        Cliente cli = new Cliente();
-
-        cli.setNome(nome);
-        cli.setEmail(email);
-        cli.setSenha(senha);
-        cli.setIp("192.168.0.1");
-        
-        if (!ClienteDAO.usuarioExiste(cli)) {
-            //ClienteDAO.inserir(cli);
-            out.println("Usuario cadastrado");
+    if (registro != null) {
+        if (registro.equals("true")) {
+            out.println("Cadastrado com sucesso!");
         } else {
-            out.println("Usuário já existe");
+             out.println("E-mail já foi cadastrado!");    
         }
     }
 
@@ -122,7 +109,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("                    <!--FORMULÁRIO DE REGISTRO -->\r\n");
       out.write("                    <div class=\"col-md-5 login-sec\" id=\"registro\" style=\"display: none\">\r\n");
-      out.write("                        <form class=\"login-form\" id=\"formRegisto\" name=\"formRegisto\" method=\"post\">\r\n");
+      out.write("                        <form class=\"login-form\" id=\"formRegisto\" name=\"formRegisto\" method=\"post\" action=\"cliente/registro.jsp\">\r\n");
       out.write("                            <h2 class=\"text-center\">Registro</h2>\r\n");
       out.write("                            <div class=\"form-group\">\r\n");
       out.write("                                <label for=\"nomeRegistro\">Nome</label>\r\n");
