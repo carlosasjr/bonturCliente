@@ -36,9 +36,19 @@
                                 }
                             }
 
+                            String login = request.getParameter("login");
+
+                            if (login != null) {
+                                if (login.equals("false")) {
+                                    out.println("Email e/ou Senha inválidos!");
+                                }
+
+                            }
+
+
                         %>                        
 
-                        <form class="login-form" id="formLogin" name="formLogin" method="post">
+                        <form class="login-form" id="formLogin" name="formLogin" method="post" action="cliente/logar.jsp">
 
                             <div class="form-group">
                                 <label for="email">E-mail</label>

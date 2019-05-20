@@ -4,7 +4,24 @@
     Author     : Carlos-TP
 --%>
 
+<%@page import="dominio.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+   //VERIFICA SE EXISTE UMA SESSÃO
+   //SE SIM, RETORNA UM OBJETO CLIENTE
+   //SENÃO REDIRECIONA PARA O LOGIN
+    Cliente cli = null;
+
+    if (session.getAttribute("cliente") != null) {
+        cli = (Cliente) session.getAttribute("cliente");
+    } else {
+        response.sendRedirect("login.jsp");
+    }
+
+%>
+
+
 <!DOCTYPE html>
 <html>
     <head>

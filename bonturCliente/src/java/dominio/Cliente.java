@@ -10,6 +10,7 @@ package dominio;
  * @author Carlos-TP
  */
 public class Cliente {
+    private Integer id;
     private String nome;
     private String cpf;
     private String email;
@@ -25,6 +26,16 @@ public class Cliente {
     private String pais;
     private String ip;
     private int status;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
+    
 
     public String getNome() {
         return nome;

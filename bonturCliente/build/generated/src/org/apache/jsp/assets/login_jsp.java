@@ -49,20 +49,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("   \r\n");
       out.write("\r\n");
       out.write("\r\n");
-
-
-    String registro = request.getParameter("registro");
-
-    if (registro != null) {
-        if (registro.equals("true")) {
-            out.println("Cadastrado com sucesso!");
-        } else {
-             out.println("E-mail já foi cadastrado!");    
-        }
-    }
-
-
-      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("<html lang=\"pt-br\">\r\n");
@@ -81,7 +67,36 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <!--FORMULÁRIO DE LOGIN -->\r\n");
       out.write("                    <div class=\"col-md-5 login-sec\" id=\"login\">\r\n");
       out.write("                        <h2 class=\"text-center\">Login</h2>                       \r\n");
-      out.write("                        <form class=\"login-form\" id=\"formLogin\" name=\"formLogin\" method=\"post\">\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                        ");
+
+
+                            String registro = request.getParameter("registro");
+
+                            if (registro != null) {
+                                if (registro.equals("true")) {
+                                    out.println("Cadastrado com sucesso!");
+                                } else {
+                                    out.println("E-mail já foi cadastrado!");
+                                }
+                            }
+                            
+                            
+                            String login = request.getParameter("login");
+                            
+                          if (login != null) {
+                                if (registro.equals("false")) {
+                                    out.println("Email e/ou Senha inválido!");
+                                }
+
+                            }                            
+                            
+
+                        
+      out.write("                        \r\n");
+      out.write("\r\n");
+      out.write("                        <form class=\"login-form\" id=\"formLogin\" name=\"formLogin\" method=\"post\" action=\"cliente/logar.jsp\">\r\n");
       out.write("\r\n");
       out.write("                            <div class=\"form-group\">\r\n");
       out.write("                                <label for=\"email\">E-mail</label>\r\n");
