@@ -1,20 +1,4 @@
-<%@page import="dominio.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<%
-    //VERIFICA SE EXISTE UMA SESSÃO
-    //SE SIM, RETORNA UM OBJETO CLIENTE
-    //SENÃO REDIRECIONA PARA O LOGIN
-    Cliente cli = null;
-
-    if (session.getAttribute("cliente") != null) {
-        cli = (Cliente) session.getAttribute("cliente");
-    } else {
-        response.sendRedirect("login.jsp");
-    }
-
-%>
-
 
 <!DOCTYPE html>
 
@@ -71,7 +55,7 @@
                     </div>
 
                     <div class="col-12 col-sm-5">
-                        Área do Cliente
+ 
                     </div>
 
 
@@ -98,7 +82,7 @@
                             <div class="col-sm-7 float-right">
                                 <a href="#" aria-haspopup="true" aria-expanded="false">
                                     <img class="user-avatar rounded-circle" src="assets/images/iconfinder_shopping-cart_216477.png" alt="User Avatar">
-                                    <span class="count bg-danger">5</span>
+                                    <span class="count bg-danger">0</span>
                                 </a>
                             </div>
                         </div> 

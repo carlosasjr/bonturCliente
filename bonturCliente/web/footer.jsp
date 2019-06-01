@@ -18,6 +18,7 @@
         <script src="assets/js/localization/messages_pt_BR.min.js" type="text/javascript"></script>
         <script src="assets/js/jquery.mask.min.js" type="text/javascript"></script>
         <script src="assets/js/jquery.maskMoney.js" type="text/javascript"></script>
+        <script src="assets/js/script.js" type="text/javascript"></script>
 
         <script type="text/javascript">
             (function ($) {

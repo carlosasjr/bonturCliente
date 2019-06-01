@@ -3,6 +3,11 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import persistencia.ProdutoDAO;
+import dominio.Produto;
+import java.util.ArrayList;
+import persistencia.CategoriaDAO;
+import dominio.Categoria;
 import dominio.Cliente;
 
 public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
@@ -11,6 +16,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
+
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/validaSessao.jsp");
+  }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -31,7 +41,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -45,6 +55,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write('\n');
 
     //VERIFICA SE EXISTE UMA SESSÃO
     //SE SIM, RETORNA UM OBJETO CLIENTE
@@ -58,149 +71,158 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     }
 
 
+      out.write('\n');
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "header.jsp", out, false);
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("<!DOCTYPE html>\n");
+      out.write("<div class=\"container-fluid painel\" >\n");
+      out.write("    <!--CAROUSEL DE IMAGENS -->\n");
+      out.write("    <div class=\"col-12\">\n");
+      out.write("        <div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-ride=\"carousel\">\n");
+      out.write("            <ol class=\"carousel-indicators\">\n");
+      out.write("                <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"0\" class=\"active\"></li>\n");
+      out.write("                <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"1\"></li>\n");
+      out.write("                <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"2\"></li>\n");
+      out.write("            </ol>\n");
+      out.write("            <div class=\"carousel-inner\" role=\"listbox\">\n");
+      out.write("                <div class=\"carousel-item active\">\n");
+      out.write("                    <img class=\"d-block img-fluid\"\n");
+      out.write("                         src=\"assets/images/Bontur-Bondinhos-Aereos-Aparecida-SP-1121.jpg\"\n");
+      out.write("                         alt=\"First slide\">\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"carousel-item\">\n");
+      out.write("                    <img class=\"d-block img-fluid\"\n");
+      out.write("                         src=\"assets/images/Bontur-Bondinhos-Aereos-Aparecida-SP-59.jpg\"\n");
+      out.write("                         alt=\"First slide\">\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"carousel-item\">\n");
+      out.write("                    <img class=\"d-block img-fluid\"\n");
+      out.write("                         src=\"assets/images/Bontur-Bondinhos-Aereos-Aparecida-SP-168.jpg\"\n");
+      out.write("                         alt=\"First slide\">\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("    </div> <!--CAROUSEL DE IMAGENS -->       \n");
+      out.write("</div> <!--CONTEINER FLUID --> \n");
       out.write("\n");
-      out.write("<html>\n");
-      out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Área do Cliente</title>\n");
-      out.write("\n");
-      out.write("        <link rel=\"stylesheet\" href=\"public/vendors/bootstrap/dist/css/bootstrap.min.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"public/vendors/font-awesome/css/font-awesome.min.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"public/vendors/themify-icons/css/themify-icons.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"public/vendors/flag-icon-css/css/flag-icon.min.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"public/vendors/selectFX/css/cs-skin-elastic.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"public/vendors/jqvmap/dist/jqvmap.min.css\">\n");
+      out.write("<div class=\"container-fluid\">\n");
+      out.write("    \n");
+      out.write("    <!--input invisivel com o id do cliente  --> \n");
+      out.write("    <input type=\"hidden\" id=\"clienteID\" value=\"");
+      out.print( (cli != null) ? cli.getId() : "" );
+      out.write("\"> \n");
       out.write("\n");
       out.write("\n");
-      out.write("        <link rel=\"stylesheet\" href=\"public/assets/css/style.css\" type=\"text/css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"assets/css/admin.css\" type=\"text/css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"assets/css/alertify.core.css\" type=\"text/css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"assets/css/alertify.default.css\" type=\"text/css\">\n");
+      out.write("    ");
+        //CRIA ARRAY VAZIO   
+        ArrayList<Categoria> lista = new ArrayList<>();
+
+        //BUSCA TODAS AS CATEGORIAS PARA O ARRAY lista    
+        lista = CategoriaDAO.listarCategorias();
+
+        //PERCORRE TODAS AS CATEGORIAS 
+        for (Categoria categoria : lista) {
+    
       out.write("\n");
-      out.write("        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("        <div id=\"right-panel\" class=\"right-panel\">\n");
-      out.write("            <!-- Right Panel -->\n");
-      out.write("            <!-- Header-->\n");
-      out.write("            <header id=\"header\" class=\"header\">\n");
-      out.write("                <div class=\"header-menu\">\n");
-      out.write("                    <div class=\"col-2 col-sm-2\">\n");
-      out.write("                        <div class=\"header-left\">\n");
-      out.write("                            <div class=\"dropdown for-notification\">\n");
-      out.write("                                <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"notification\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n");
-      out.write("                                    <i class=\"fa fa-bell\"></i>\n");
-      out.write("                                    <span class=\"count bg-danger\">5</span>\n");
-      out.write("                                </button>\n");
-      out.write("                                <div class=\"dropdown-menu\" aria-labelledby=\"notification\">\n");
-      out.write("                                    <p class=\"red\">Notificações</p>\n");
-      out.write("                                    <a class=\"dropdown-item media bg-flat-color-1\" href=\"#\">\n");
-      out.write("                                        <i class=\"fa fa-check\"></i>\n");
-      out.write("                                        <p>Texto de exemplo</p>\n");
-      out.write("                                    </a>\n");
-      out.write("                                    <a class=\"dropdown-item media bg-flat-color-4\" href=\"#\">\n");
-      out.write("                                        <i class=\"fa fa-info\"></i>\n");
-      out.write("                                        <p>Texto de exemplo</p>\n");
-      out.write("                                    </a>\n");
-      out.write("                                    <a class=\"dropdown-item media bg-flat-color-5\" href=\"#\">\n");
-      out.write("                                        <i class=\"fa fa-warning\"></i>\n");
-      out.write("                                        <p>Texto de exemplo</p>\n");
-      out.write("                                    </a>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("    <section class=\"col-12\">\n");
+      out.write("        <div class=\"card border-white\">\n");
+      out.write("            <div class=\"breadcrumbs\">\n");
+      out.write("                <div class=\"col-sm-4\">\n");
+      out.write("                    <div class=\"page-header float-left\">\n");
+      out.write("                        <div class=\"page-title\">\n");
+      out.write("                            <h1>");
+      out.print( categoria.getDescricao());
+      out.write("</h1>\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("\n");
+      out.write("            </div>\n");
+      out.write("\n");
+      out.write("            <div class=\"card-body\">\n");
+      out.write("                <div class=\"row\">                  \n");
+      out.write("                    ");
+
+                        //CRIA ARRAY VAZIO   
+                        ArrayList<Produto> listaProduto = new ArrayList<>();
+
+                        //BUSCA TODAS OS PRODUTOS PARA O ARRAY listaProduto POR id DA CATEGORIA    
+                        listaProduto = ProdutoDAO.listarProdutos(categoria.getId());
+
+                        for (Produto produto : listaProduto) {
+                    
+      out.write("\n");
+      out.write("\n");
+      out.write("                    <article class=\"col-12 col-sm-4 ingresso\">\n");
+      out.write("                        <div class=\"card bg-flat-color-1 text-light\">\n");
+      out.write("                            <div class=\"card-body\">\n");
+      out.write("                                <div class=\"row\">\n");
+      out.write("                                    <div class=\"col-12\">\n");
+      out.write("                                        <div class=\"h4 m-0\">");
+      out.print( produto.getDescricao());
+      out.write("</div>\n");
+      out.write("                                        <div>");
+      out.print( produto.getDetalhes());
+      out.write("</div>\n");
+      out.write("                                        <div class=\"progress-bar bg-light mt-2 mb-2\" role=\"progressbar\" style=\"width: 20%; height: 5px;\" aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n");
+      out.write("                                    </div>\n");
+      out.write("                                </div>\n");
+      out.write("\n");
+      out.write("                                <div class=\"row\">\n");
+      out.write("                                    <div class=\"col-6\">\n");
+      out.write("                                        <small for=\"id_ingresso\" class=\"text-light\">Quantidade: </small><br>\n");
+      out.write("                                        <input type=\"number\" name=\"quantidade\" id=\"");
+      out.print( produto.getId());
+      out.write("\" min=\"0\" value=\"0\" style=\"width: 30%\">\n");
+      out.write("\n");
+      out.write("                                        <a class=\"j_add\" href=\"#\" rel=\"");
+      out.print( produto.getId());
+      out.write("\"  aria-haspopup=\"true\" aria-expanded=\"false\">\n");
+      out.write("                                            <img src=\"assets/images/iconfinder_shopping-cart_216477.png\" alt=\"Adicionar\" width=\"30\" height=\"30\">                                        \n");
+      out.write("                                        </a>\n");
+      out.write("                                    </div>\n");
+      out.write("\n");
+      out.write("                                    <div class=\"col-6\">\n");
+      out.write("                                        <div class=\"d-flex justify-content-center\">\n");
+      out.write("                                            <h5>");
+      out.print( produto.getPreco());
+      out.write("</h5>\n");
+      out.write("                                        </div>\n");
+      out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                        </div>\n");
-      out.write("                    </div>\n");
+      out.write("                    </article>\n");
       out.write("\n");
-      out.write("                    <div class=\"col-12 col-sm-5\">\n");
-      out.write("                        Área do Cliente\n");
-      out.write("                    </div>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("                    <div class=\"col-10 col-sm-5\">\n");
-      out.write("                        <div class=\"user-area dropdown float-right\">\n");
-      out.write("                            <div class=\"col-sm-5 float-right\">\n");
-      out.write("                                <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n");
-      out.write("                                    <img class=\"user-avatar rounded-circle\" src=\"assets/images/admin.jpg\" alt=\"User Avatar\">\n");
-      out.write("                                </a>\n");
-      out.write("\n");
-      out.write("                                <div class=\"user-menu dropdown-menu\">\n");
-      out.write("                                    <a class=\"nav-link\" href=\"index.php?exe=usuarios/profile\"><i class=\"fa fa-user\"></i> Minha Conta</a>\n");
-      out.write("\n");
-      out.write("                                    <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-user\"></i> Notificações <span class=\"count\">13</span></a>\n");
-      out.write("\n");
-      out.write("                                    <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-cog\"></i> Configurações</a>\n");
-      out.write("\n");
-      out.write("                                    <a class=\"nav-link\" href=\"sair.php\"><i class=\"fa fa-power-off\"></i> Logout</a>\n");
-      out.write("                                </div>     \n");
-      out.write("                            </div>\n");
+      out.write("                    ");
+}
+      out.write(" <!-- FINALIZA FOR DOS PRODUTOS -->\n");
       out.write("\n");
       out.write("\n");
-      out.write("                            <div class=\"col-sm-7 float-right\">\n");
-      out.write("                                <a href=\"#\" aria-haspopup=\"true\" aria-expanded=\"false\">\n");
-      out.write("                                    <img class=\"user-avatar rounded-circle\" src=\"assets/images/iconfinder_shopping-cart_216477.png\" alt=\"User Avatar\">\n");
-      out.write("                                    <span class=\"count bg-danger\">5</span>\n");
-      out.write("                                </a>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div> \n");
-      out.write("                    </div>\n");
       out.write("                </div>\n");
-      out.write("            </header><!-- /header -->\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("       .....\n");
-      out.write("\n");
-      out.write("\n");
+      out.write("            </div>\n");
       out.write("        </div>\n");
-      out.write("\n");
-      out.write("        <script src=\"public/vendors/jquery/dist/jquery.min.js\"></script>\n");
-      out.write("        <script src=\"public/vendors/popper.js/dist/umd/popper.min.js\"></script>\n");
-      out.write("        <script src=\"public/vendors/bootstrap/dist/js/bootstrap.min.js\"></script>\n");
-      out.write("        <script src=\"public/assets/js/main.js\"></script>\n");
-      out.write("\n");
-      out.write("        <script src=\"public/vendors/chart.js/dist/Chart.bundle.min.js\"></script>\n");
-      out.write("        <script src=\"public/assets/js/dashboard.js\"></script>\n");
-      out.write("        <script src=\"public/assets/js/widgets.js\"></script>\n");
-      out.write("        <script src=\"public/vendors/jqvmap/dist/jquery.vmap.min.js\"></script>\n");
-      out.write("        <script src=\"public/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js\"></script>\n");
-      out.write("        <script src=\"public/vendors/jqvmap/dist/maps/jquery.vmap.world.js\"></script>\n");
-      out.write("        <script src=\"assets/js/alertify.min.js\"></script>\n");
-      out.write("\n");
-      out.write("        <script src=\"assets/js/jquery.validate.min.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src=\"assets/js/additional-methods.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src=\"assets/js/localization/messages_pt_BR.min.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src=\"assets/js/jquery.mask.min.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <script src=\"assets/js/jquery.maskMoney.js\" type=\"text/javascript\"></script>\n");
-      out.write("\n");
-      out.write("        <script type=\"text/javascript\">\n");
-      out.write("            (function ($) {\n");
-      out.write("                \"use strict\";\n");
-      out.write("\n");
-      out.write("                jQuery('#vmap').vectorMap({\n");
-      out.write("                    map: 'world_en',\n");
-      out.write("                    backgroundColor: null,\n");
-      out.write("                    color: '#ffffff',\n");
-      out.write("                    hoverOpacity: 0.7,\n");
-      out.write("                    selectedColor: '#1de9b6',\n");
-      out.write("                    enableZoom: true,\n");
-      out.write("                    showTooltip: true,\n");
-      out.write("                    values: sample_data,\n");
-      out.write("                    scaleColors: ['#1de9b6', '#03a9f5'],\n");
-      out.write("                    normalizeFunction: 'polynomial'\n");
-      out.write("                });\n");
+      out.write("    </section>    \n");
       out.write("\n");
       out.write("\n");
-      out.write("            })(jQuery);\n");
-      out.write("        </script>\n");
+      out.write("    ");
+ }
+      out.write(" <!-- FINALIZA FOR DAS CATEGORIAS -->\n");
       out.write("\n");
-      out.write("    </script>    \n");
-      out.write("</body>\n");
-      out.write("</html>\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("\n");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "footer.jsp", out, false);
+      out.write("       \n");
       out.write("\n");
       out.write("\n");
     } catch (Throwable t) {

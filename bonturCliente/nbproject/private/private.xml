@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/FATEC/PI-2Semestre/bonturCliente/bonturCliente/web/assets/js/script.js</file>
             <file>file:/D:/FATEC/PI-2Semestre/bonturCliente/bonturCliente/web/footer.jsp</file>
-            <file>file:/D:/FATEC/PI-2Semestre/bonturCliente/bonturCliente/web/header.jsp</file>
-            <file>file:/D:/FATEC/PI-2Semestre/bonturCliente/bonturCliente/web/carrinho.jsp</file>
+            <file>file:/D:/FATEC/PI-2Semestre/bonturCliente/bonturCliente/web/admin/cliente/registro.jsp</file>
             <file>file:/D:/FATEC/PI-2Semestre/bonturCliente/bonturCliente/web/index.jsp</file>
+            <file>file:/D:/FATEC/PI-2Semestre/bonturCliente/bonturCliente/web/admin/carrinho/adicionarCarrinho.jsp</file>
+            <file>file:/D:/FATEC/PI-2Semestre/bonturCliente/bonturCliente/src/java/persistencia/CategoriaDAO.java</file>
         </group>
     </open-files>
 </project-private>

@@ -26,6 +26,9 @@ public class Cliente {
     private String pais;
     private String ip;
     private int status;
+    private String telefone;
+    private String celular;
+    private String observacoes;
 
     public Integer getId() {
         return id;
@@ -33,8 +36,7 @@ public class Cliente {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-    
+    }   
     
 
     public String getNome() {
@@ -156,6 +158,32 @@ public class Cliente {
     public void setStatus(int status) {
         this.status = status;
     }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getObservacoes() {
+        return observacoes;
+    }
+
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
+    }
+    
+    
     
     
     
