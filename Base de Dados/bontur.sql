@@ -16,6 +16,18 @@
 CREATE DATABASE IF NOT EXISTS `carlo019_bontur` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 USE `carlo019_bontur`;
 
+-- Copiando estrutura para tabela carlo019_bontur.carrinho
+CREATE TABLE IF NOT EXISTS `carrinho` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `data_criacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Copiando dados para a tabela carlo019_bontur.carrinho: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `carrinho` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrinho` ENABLE KEYS */;
+
 -- Copiando estrutura para tabela carlo019_bontur.categorias
 CREATE TABLE IF NOT EXISTS `categorias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -56,12 +68,13 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `cpf` varchar(14) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- Copiando dados para a tabela carlo019_bontur.clientes: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela carlo019_bontur.clientes: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
 INSERT INTO `clientes` (`id`, `nome`, `senha`, `status`, `email`, `ip`, `data_cadastro`, `data_alteracao`, `endereco`, `numero`, `bairro`, `cidade`, `estado`, `pais`, `telefone`, `celular`, `observacoes`, `cpf`) VALUES
-	(8, 'Gabriel Henrique', '123', '0', 'gabriel@hotmail.com', '192.168.0.1', '2019-05-18 16:50:00', '2019-05-18 16:50:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+	(8, 'Gabriel Henrique', '123', '0', 'gabriel@hotmail.com', '192.168.0.1', '2019-05-18 16:50:00', '2019-05-18 16:50:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(9, 'Isabela Gianna dos Santos', '123', '0', 'isabela@hotmail.com', '192.168.0.1', '2019-05-19 12:10:50', '2019-05-19 12:10:50', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela carlo019_bontur.perfil
@@ -96,9 +109,9 @@ CREATE TABLE IF NOT EXISTS `produtos` (
   PRIMARY KEY (`id`),
   KEY `FK_produtos_categorias` (`id_categoria`),
   CONSTRAINT `FK_produtos_categorias` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela carlo019_bontur.produtos: ~6 rows (aproximadamente)
+-- Copiando dados para a tabela carlo019_bontur.produtos: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
 INSERT INTO `produtos` (`id`, `descricao`, `preco`, `pontos`, `data_criacao`, `data_alteracao`, `detalhes`, `id_categoria`) VALUES
 	(1, 'Bondinho (Somente Ida)', 16, 1, '2019-05-03 12:33:59', '2019-05-03 12:54:42', '', 1),
@@ -106,7 +119,8 @@ INSERT INTO `produtos` (`id`, `descricao`, `preco`, `pontos`, `data_criacao`, `d
 	(3, 'Bondinho (Somente Ida)', 8, 1, '2019-05-03 12:35:17', '2019-05-03 12:35:17', 'Mediante apresentação de documento', 2),
 	(4, 'Bondinho (Ida e Volta)', 13, 1, '2019-05-03 12:35:46', '2019-05-03 12:35:46', 'Mediante apresentação de documento', 2),
 	(5, 'Bondinho (Somente Ida)', 8, 1, '2019-05-03 12:37:00', '2019-05-03 12:54:50', 'Apartir de 60 anos - mediante apresentação de documento', 3),
-	(6, 'Bondinho (Ida e Volta)', 13, 1, '2019-05-03 12:37:36', '2019-05-03 12:37:36', 'Apartir de 60 anos - mediante apresentação de documento', 3);
+	(6, 'Bondinho (Ida e Volta)', 13, 1, '2019-05-03 12:37:36', '2019-05-03 12:37:36', 'Apartir de 60 anos - mediante apresentação de documento', 3),
+	(7, 'Ingresso de teste', 50, 1, '2019-05-28 20:52:48', '2019-05-28 20:52:48', 'teste', 4);
 /*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela carlo019_bontur.usuarios
@@ -140,8 +154,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 INSERT INTO `usuarios` (`id`, `nome`, `senha`, `status`, `email`, `ip`, `data_cadastro`, `data_alteracao`, `id_perfil`, `endereco`, `numero`, `bairro`, `cidade`, `estado`, `pais`, `telefone`, `celular`, `observacoes`) VALUES
 	(1, 'Carlos Antônio dos Santos Júnior', '202cb962ac59075b964b07152d234b70', '1', 'carlosasjr2003@hotmail.com', '::1', '2019-04-26 10:41:55', '2019-05-18 22:51:59', 1, 'Rua Isaac Júlio Barreto', '229', 'Ponte Alta', 'Aparecida', 'SP', 'Brasil', '(12)981544374', '', 'Teste de observação'),
 	(2, 'Maria Eugenia dos Santos', '202cb962ac59075b964b07152d234b70', '0', 'maria_gena_@hotmail.com', '::1', '2019-04-29 09:11:16', '2019-05-01 00:18:48', 2, 'Rua Isaac Julio Barreto', '229', 'Ponte Alta', 'Aparecida', 'SP', 'Brasil', '', '', 'teste de área'),
-	(3, 'Isabela Gianna dos Santos', '202cb962ac59075b964b07152d234b70', '1', 'isabela@hotmail.com', '::1', '2019-04-30 16:02:27', '2019-05-01 00:18:48', 1, '', '', '', '', 'SP', 'Brasil', '', '', ''),
-	(4, 'Samuel Henrique dos Santos', '123', '1', 'samuca@hotmail.com', '127.0.0.1', '2019-05-03 10:23:02', '2019-05-03 10:23:02', 2, '', '', '', '', 'SP', '', '(12)3311-1714', '(12)98154-4374', 'Teste de observação');
+	(3, 'Isabela Gianna dos Santos', '123', '1', 'isabela@hotmail.com', '::1', '2019-04-30 16:02:27', '2019-05-31 16:34:35', 1, '', '', '', '', 'SP', 'Brasil', '', '', ''),
+	(4, 'Samuel Henrique dos Santos', '202cb962ac59075b964b07152d234b70', '1', 'samuca@hotmail.com', '127.0.0.1', '2019-05-03 10:23:02', '2019-05-31 16:27:04', 2, '', '', '', '', 'SP', '', '(12)3311-1714', '(12)98154-4374', 'Teste de observação');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela carlo019_bontur.usuariostoken
