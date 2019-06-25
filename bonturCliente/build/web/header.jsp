@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="assets/css/alertify.core.css" type="text/css">
         <link rel="stylesheet" href="assets/css/alertify.default.css" type="text/css">
 
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+        
     </head>
     <body>
         <div id="right-panel" class="right-panel">
@@ -33,7 +33,7 @@
                             <div class="dropdown for-notification">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-bell"></i>
-                                    <span class="count bg-danger">5</span>
+                                    <span class="count bg-danger">0</span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="notification">
                                     <p class="red">Notificações</p>
@@ -80,9 +80,9 @@
 
 
                             <div class="col-sm-7 float-right">
-                                <a href="#" aria-haspopup="true" aria-expanded="false">
+                                <a href="resumoCarrinho.jsp" aria-haspopup="true" aria-expanded="false">
                                     <img class="user-avatar rounded-circle" src="assets/images/iconfinder_shopping-cart_216477.png" alt="User Avatar">
-                                    <span class="count bg-danger">0</span>
+                                    <span id="countItens" class="count bg-danger">0</span>
                                 </a>
                             </div>
                         </div> 

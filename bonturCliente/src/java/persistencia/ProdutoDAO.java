@@ -53,5 +53,42 @@ public class ProdutoDAO {
         return produtos;
         
     }
+       
+       
+    //VERIFICA SE O PRODUTO EXISTE NO BANCO DE DADOS PELO ID
+    //CASO EXISTE, RETORNA UM OBJETO PRODUTO
+    public static Produto getIDProduto(Integer id) throws SQLException {
+        con = Conexao.getConnection();
+
+        String sql = "SELECT * FROM produtos WHERE id = ?";
+
+        try {
+            PreparedStatement pdo = con.prepareStatement(sql);
+
+            pdo.setInt(1, id);
+   
+            ResultSet lista = pdo.executeQuery();
+
+            if (lista.next()) {
+                Produto prod = new Produto();
+                prod.setId(lista.getInt("id"));
+                prod.setDescricao(lista.getString("descricao"));
+                prod.setPreco(lista.getString("preco"));
+                prod.setPontos(lista.getInt("pontos"));
+                prod.setDetalhes(lista.getString("detalhes"));                              
+                
+                return prod;
+            }
+
+            lista.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return null;
+
+    }      
+       
     
 }

@@ -36,8 +36,7 @@ public class Produto {
     }
 
     public String getPreco() { 
-        Long a = Long.parseLong(preco);
-        return NumberFormat.getCurrencyInstance().format(a);
+        return preco;
     }
 
     public void setPreco(String preco) {
