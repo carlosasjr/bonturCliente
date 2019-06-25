@@ -112,7 +112,7 @@
                     </table>
                 </div>
                 <div class="card-body pt-0">
-                    <a class="btn btn-primary btn-lg btn-block float-right rounded" href="ecommerce-checkout-page.html">
+                    <a class="btn btn-primary btn-lg btn-block float-right rounded" href="finalizarCarrinho.jsp">
                         Finalizar Compra                      
                     </a>
                 </div>
