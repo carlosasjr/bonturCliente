@@ -156,7 +156,30 @@ jQuery(document).ready(function ($) {
     
     
     //VALIDAÇÕES DE FORMULÁRIO
+    jQuery("#cartaocredito").mask("0000-0000-0000-0000");
+    jQuery("#cvv").mask("000");
     
+    
+    jQuery("#formCartao").validate({
+        rules: {
+            nomecartao: {
+                required: true
+            },
+            
+            cartaocredito : {
+                required: true
+                //creditcard: true
+            },
+            
+            cvv : {
+                required: true
+            }
+
+        },
+        submitHandler: function (form) {
+             alertify.alert("Venda realizada com sucesso!")
+        }
+    });
 
 
 
