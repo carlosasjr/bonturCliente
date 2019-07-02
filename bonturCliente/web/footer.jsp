@@ -1,4 +1,6 @@
-</div>
+</div> 
+
+
 
 <script src="public/vendors/jquery/dist/jquery.min.js"></script>
 <script src="public/assets/js/main.js"></script>
@@ -16,7 +18,6 @@
 <script src="assets/js/localization/messages_pt_BR.min.js" type="text/javascript"></script>
 <script src="assets/js/jquery.mask.min.js" type="text/javascript"></script>
 <script src="assets/js/jquery.maskMoney.js" type="text/javascript"></script>
-
 
 </body>
 </html>

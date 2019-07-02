@@ -71,12 +71,12 @@
                         </tbody>
 
                     </table>
-                            
+
                     <a href="index.jsp" class="btn btn-primary text-white rounded">                       
                         Continuar comprando...
                     </a>                           
                 </div>                          
-                             
+
             </div>
         </section> 
 
@@ -117,19 +117,35 @@
                     </a>
                 </div>
             </div>
-
-
-
-
         </section>
     </div>
 
 
 
 
+
+
+
+
 </div>
 
+<footer id="footer"  class="row">
+    <div class="col-12">
 
+        
+        <nav class="social">
+            
+                
+                <a   href="https://bondinhoaparecida.com.br/">Nosso Site</a>
+                <a  href="https://www.google.com/maps/place/Bontur+Bondinhos+A%C3%A9reos/@-22.8513307,-45.2349883,17z/data=!3m1!4b1!4m5!3m4!1s0x94ccc3687d0c4c65:0x547d6d5da6a18bb7!8m2!3d-22.8513357!4d-45.2327996"><img src="assets/images/facebook-placeholder-para-localizar-lugares-em-mapas.png"  height="30px" width="30px" alt=""/></a>
+                <a  href="https://www.facebook.com/bondinhosaparecida"><img src="assets/images/facebook.png"  height="30px" width="30px" alt="" /></a>
+                
+                
+        </nav>
+        <div id="bonturbnd"> <img  src="assets/images/WhatsApp Image 2019-07-02 at 15.54.15.jpeg"  height="50px" width="50px" alt=""/> &copy; Copyright Bontur Bondinhos Aéreos </div>
+        
+    </div>
+</footer>
 
 
 </div>
